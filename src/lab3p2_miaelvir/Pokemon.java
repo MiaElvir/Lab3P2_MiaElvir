@@ -68,6 +68,11 @@ public class Pokemon {
             }
         return si; 
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon:" + " nombre:" + nombre + " || entrada_pokedex: " + entrada_pokedex + " ||  naturaleza: " + naturaleza + " || estado_atrapado: " + estado_atrapado + " || pokeball: " + pokeball;
+    }
     
     
     

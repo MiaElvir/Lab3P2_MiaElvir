@@ -67,6 +67,11 @@ public class WaterType extends Pokemon{
     public void setPokeball(Pokebola pokeball) {
         this.pokeball = pokeball;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ " || vida_posible: " + vida_posible + " || rapidez: " + rapidez;
+    }
     
     
     

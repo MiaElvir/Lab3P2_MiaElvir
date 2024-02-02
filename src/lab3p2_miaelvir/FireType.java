@@ -59,6 +59,11 @@ public class FireType extends Pokemon{
     public void setPokeball(Pokebola pokeball) {
         this.pokeball = pokeball;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " || poten_llamas: " + poten_llamas;
+    }
     
     
     

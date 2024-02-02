@@ -127,11 +127,17 @@ public class Lab3P2_MiaElvir {
                         numSerie = papoy.nextInt();
                     }
                     int efi_atrapado = ran.nextInt(1, 4); 
-                    System.out.println(efi_atrapado);
                     pokebolas.add(new Pokebola(colorpoke, numSerie, efi_atrapado)); 
+                    System.out.println("Pokebola creada!");
                     
                     break; 
                 case 3: 
+                    if (pokemones.isEmpty() == true){
+                        System.out.println("No se puede listar ya que la lista esta vacia");
+                        break; 
+                    }
+                    System.out.println("-Listado Pokemones");
+                    listar(pokemones); 
                     break; 
                 case 4: 
                     break; 
@@ -165,5 +171,14 @@ public class Lab3P2_MiaElvir {
        return false; 
    
    }
-    
+   
+   public static void listar(ArrayList<Pokemon> lista){
+       System.out.println("Firetype ---");
+       for (int i = 0; i < lista.size(); i++) {
+           Object pokeci = lista.get(i); 
+           if (pokeci instanceof FireType){
+               System.out.println(pokeci.toString());
+           }
+       }
+   }
 }
