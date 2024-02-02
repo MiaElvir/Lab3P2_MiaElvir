@@ -1,13 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lab3p2_miaelvir;
 
-/**
- *
- * @author Usuario
- */
 public class Pokebola {
+    
+    String color; 
+    int numSerie; 
+    int eficiencia_a; // 1 al 3
+
+    public Pokebola(String color, int numSerie, int eficiencia_a) {
+        this.color = color;
+        this.numSerie = numSerie;
+        this.eficiencia_a = eficiencia_a;
+    }
+
+    public Pokebola() {
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getNumSerie() {
+        return numSerie;
+    }
+
+    public void setNumSerie(int numSerie) {
+        this.numSerie = numSerie;
+    }
+
+    public int getEficiencia_a() {
+        return eficiencia_a;
+    }
+
+    public void setEficiencia_a(int eficiencia_a) {
+        this.eficiencia_a = eficiencia_a;
+    }
+    
     
 }
