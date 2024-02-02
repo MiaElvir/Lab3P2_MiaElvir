@@ -126,7 +126,12 @@ public class Lab3P2_MiaElvir {
                         System.out.println("Numero de serie ya existente\nIngrese otro: ");
                         numSerie = papoy.nextInt();
                     }
-                    int efi_atrapado = ran.nextInt(1, 4); 
+                    System.out.println("Ingrese la eficiencia de atrapado: ");
+                    int efi_atrapado = papoy.nextInt(); 
+                    while (efi_atrapado < 0 || efi_atrapado > 4){
+                        System.out.println("Debe estar en el rango 1 a 3\nVuelvalo a ingresar: ");
+                        efi_atrapado = papoy.nextInt(); 
+                    }
                     pokebolas.add(new Pokebola(colorpoke, numSerie, efi_atrapado)); 
                     System.out.println("Pokebola creada!");
                     
@@ -140,6 +145,76 @@ public class Lab3P2_MiaElvir {
                     listar(pokemones); 
                     break; 
                 case 4: 
+                    if (pokemones.isEmpty() == true){
+                        System.out.println("No se puede eliminar porque la lista esta vacia");
+                        break; 
+                    }
+                    System.out.println("¿Que tipo de pokemon desea eliminar?\n1. FireType\n2. WaterType\n3. GrassType\nIngrese la opcion: ");
+                    int eliminar = papoy.nextInt(); 
+                    if (eliminar < 0 || eliminar > 4){
+                        System.out.println("Vuelva a ingresarlo: ");
+                        eliminar = papoy.nextInt(); 
+                    }
+                    switch (eliminar){
+                        case 1: 
+                            System.out.println("-Listado FireType");
+                            System.out.println("Firetype ---");
+                            ArrayList<Integer> indices = new ArrayList<Integer>(); 
+                            for (int i = 0; i < pokemones.size(); i++) {
+                                Object pokeci = pokemones.get(i); 
+                                if (pokeci instanceof FireType){
+                                    System.out.println(i+". "+pokeci.toString());
+                                    indices.add(i); 
+                                }
+                            }
+                            System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
+                            int elim_fire = papoy.nextInt(); 
+                            while (existe(indices, elim_fire) == false){
+                                System.out.println("El indice no es correcto\nIngreselo de nuevo: ");
+                                elim_fire = papoy.nextInt(); 
+                            }
+                            pokemones.remove(elim_fire); 
+                            break; 
+                        case 2: 
+                            System.out.println("-Listado WaterType");
+                            System.out.println("Watertype ---");
+                            ArrayList<Integer> indices_water = new ArrayList<Integer>(); 
+                            for (int i = 0; i < pokemones.size(); i++) {
+                                Object pokeci = pokemones.get(i); 
+                                if (pokeci instanceof WaterType){
+                                    System.out.println(i+". "+pokeci.toString());
+                                    indices_water.add(i); 
+                                }
+                            }
+                            System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
+                            int elim_water = papoy.nextInt(); 
+                            while (existe(indices_water, elim_water) == false){
+                                System.out.println("El indice no es correcto\nIngreselo de nuevo: ");
+                                elim_water = papoy.nextInt(); 
+                            }
+                            pokemones.remove(elim_water); 
+                            break; 
+                        case 3: 
+                            System.out.println("-Listado FireType");
+                            System.out.println("Grasstype ---");
+                            ArrayList<Integer> indices_g = new ArrayList<Integer>(); 
+                            for (int i = 0; i < pokemones.size(); i++) {
+                                Object pokeci = pokemones.get(i); 
+                                if (pokeci instanceof GrassType){
+                                    System.out.println(i+". "+pokeci.toString());
+                                    indices_g.add(i); 
+                                }
+                            }
+                            System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
+                            int elim_g = papoy.nextInt(); 
+                            while (existe(indices_g, elim_g) == false){
+                                System.out.println("El indice no es correcto\nIngreselo de nuevo: ");
+                                elim_g = papoy.nextInt(); 
+                            }
+                            pokemones.remove(elim_g); 
+                            break; 
+                    }
+                    System.out.println("Pokemon eliminado!");
                     break; 
                 case 5: 
                     break; 
@@ -180,5 +255,28 @@ public class Lab3P2_MiaElvir {
                System.out.println(pokeci.toString());
            }
        }
+       System.out.println("Watertype ---");
+       for (int i = 0; i < lista.size(); i++) {
+           Object pokeci = lista.get(i); 
+           if (pokeci instanceof WaterType){
+               System.out.println(pokeci.toString());
+           }
+       }
+       System.out.println("Grasstype ---");
+       for (int i = 0; i < lista.size(); i++) {
+           Object pokeci = lista.get(i); 
+           if (pokeci instanceof GrassType){
+               System.out.println(pokeci.toString());
+           }
+       }
+   }
+   
+   public static boolean existe(ArrayList<Integer> lista, int num){
+       for (int i = 0; i < lista.size(); i++) {
+           if (lista.get(i) == num){
+               return true; 
+           }
+       }
+       return false; // si el numero de eficiencia es 2 tien probabilidad de 2 /3 que pase y si es 1 seria 1/3
    }
 }
