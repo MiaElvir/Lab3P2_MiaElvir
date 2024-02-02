@@ -106,16 +106,30 @@ public class Lab3P2_MiaElvir {
                                     break; 
 
                             }
-                            System.out.println("Desea agregar otro pokemon? \n(Si o no)");
-                            papoy.nextLine(); 
-                            String siono = papoy.nextLine(); 
-                            if (siono.equalsIgnoreCase("no")){
-                              run = false; 
-                            }
+                                System.out.println("Desea agregar otro pokemon? \n(Si o no)");
+                                papoy.nextLine();
+                                String siono = papoy.nextLine(); 
+                                if (siono.equalsIgnoreCase("no")){
+                                  run = false; 
+                                }
                     
                     }//fin run 
                     break; 
                 case 2: 
+                    System.out.println("-Crear Pokebola");
+                    System.out.println("Ingrese el color de la Pokebola: ");
+                    papoy.nextLine(); 
+                    String colorpoke = papoy.nextLine(); 
+                    System.out.println("Ingrese el numero de serie de la pokebola: ");
+                    int numSerie = papoy.nextInt(); 
+                    while (numSerieencontrado(numSerie, pokebolas) == true){
+                        System.out.println("Numero de serie ya existente\nIngrese otro: ");
+                        numSerie = papoy.nextInt();
+                    }
+                    int efi_atrapado = ran.nextInt(1, 4); 
+                    System.out.println(efi_atrapado);
+                    pokebolas.add(new Pokebola(colorpoke, numSerie, efi_atrapado)); 
+                    
                     break; 
                 case 3: 
                     break; 
@@ -129,6 +143,9 @@ public class Lab3P2_MiaElvir {
             
             }
         
+            System.out.println("--- MENU PRINCIPAL---\n1. Crear Pokemon\n2. Crear Pokebola\n3. Listar Pokemon\n4. Eliminar Pokemon"
+                + "\n5. Capturar pokemon\n6. Modificar Pokemon\n7. Salir\nIngrese la opcion que desee: ");
+            opcion = papoy.nextInt(); 
         }//while menu principal
         
         
@@ -136,6 +153,17 @@ public class Lab3P2_MiaElvir {
         
     }//fin main
     
+   public static boolean numSerieencontrado(int numero, ArrayList<Pokebola> lista){
+       if (lista.size() > 0){
+        for (int i = 0; i < lista.size(); i++) {
+            Pokebola pokecita = lista.get(i); 
+            if (pokecita.getNumSerie() == numero){
+                return true; 
+            }
+        }
+       }
+       return false; 
    
+   }
     
 }

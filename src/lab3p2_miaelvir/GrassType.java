@@ -70,7 +70,7 @@ public class GrassType extends Pokemon{
     }
     
     public static boolean dominioAdmitido(int dominio){
-        if (dominio >= 0 || dominio < 101){
+        if (dominio >= 0 && dominio < 101){
             return true; 
         }
         return false; 
