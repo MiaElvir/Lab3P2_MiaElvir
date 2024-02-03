@@ -245,7 +245,7 @@ public class Lab3P2_MiaElvir {
                         case 1: 
                             System.out.println("--- usar la pokebola ---");
                             int rani = ran.nextInt(1, 4); 
-                            System.out.println(rani);
+                            //System.out.println(rani);
                             if (rani == poke_elegida.getEficiencia_a()){
                                 System.out.println("Se ha capturado al pokemon");
                                 pokemon_ele.setPokeball(poke_elegida);
@@ -466,6 +466,9 @@ public class Lab3P2_MiaElvir {
    }
    
    public static int elegirPokemon(ArrayList<Pokemon> pokes){
+       if (pokes.size() == 1){
+           return 0; 
+       }
        int randi = ran.nextInt(0, pokes.size()-1); 
        Pokemon poke = pokemones.get(randi); 
        while (poke.isEstado_atrapado() == true){
