@@ -274,7 +274,20 @@ public class Lab3P2_MiaElvir {
                         System.out.println("Numero fuera de rango\nVuelvalo a Ingresar: ");
                         modi = papoy.nextInt(); 
                     }
-                    
+                    switch (modi) {
+                        case 1:
+                            System.out.println("--FireType");
+                            
+                            break;
+                        case 2:
+                            System.out.println("--WaterType");
+                            break;
+                        case 3:
+                            System.out.println("--GrassType");
+                            
+                            break;
+                        
+                    }
                     break; 
                     
             
@@ -346,7 +359,49 @@ public class Lab3P2_MiaElvir {
        return randi;    
    }
    
-   public static void modificar(){
-       
+   public static ArrayList<Integer>  imprimirModifire(ArrayList<Pokemon> lista){
+       ArrayList<Integer> indice = new ArrayList(); 
+       for (int i = 0; i < lista.size(); i++) {
+           Object poke = lista.get(i); 
+           if (poke instanceof FireType) {
+               FireType poki = (FireType)poke; 
+               if (poki.isEstado_atrapado() == true){
+                   System.out.println(i+". "+poki.toString());
+                   indice.add(i); 
+               }
+           }
+       }
+       return indice; 
+   
+   }
+   public static ArrayList<Integer>  imprimirModiwater(ArrayList<Pokemon> lista){
+       ArrayList<Integer> indice = new ArrayList(); 
+       for (int i = 0; i < lista.size(); i++) {
+           Object poke = lista.get(i); 
+           if (poke instanceof WaterType) {
+               WaterType poki = (WaterType)poke; 
+               if (poki.isEstado_atrapado() == true){
+                   System.out.println(i+". "+poki.toString());
+                    indice.add(i); 
+               }
+           }
+       }
+       return indice; 
+   
+   }
+   public static ArrayList<Integer> imprimirModiGrass(ArrayList<Pokemon> lista){
+       ArrayList<Integer> indice = new ArrayList(); 
+       for (int i = 0; i < lista.size(); i++) {
+           Object poke = lista.get(i); 
+           if (poke instanceof GrassType) {
+               GrassType poki = (GrassType)poke; 
+               if (poki.isEstado_atrapado() == true){
+                   System.out.println(i+". "+poki.toString());
+                   indice.add(i); 
+               }
+           }
+       }
+       return indice;
+   
    }
 }
