@@ -217,6 +217,10 @@ public class Lab3P2_MiaElvir {
                     System.out.println("Pokemon eliminado!");
                     break; 
                 case 5: 
+                    if (pokebolas.isEmpty() == true || pokemones.isEmpty() == true){
+                        System.out.println("no se puede realizar la simulacion");
+                        break; 
+                    }
                     System.out.println("Simulacion--");
                     for (int i = 0; i < pokebolas.size(); i++) {
                         Pokebola poke = pokebolas.get(i); 
@@ -245,6 +249,15 @@ public class Lab3P2_MiaElvir {
                                 System.out.println("Se ha capturado al pokemon");
                                 pokemon_ele.setPokeball(poke_elegida);
                                 pokemon_ele.setEstado_atrapado(true);
+                                pokebolas.remove(poke_elegida); 
+                            }else if (rani < poke_elegida.getEficiencia_a()){
+                                System.out.println("Se ha capturado al pokemon");
+                                pokemon_ele.setPokeball(poke_elegida);
+                                pokemon_ele.setEstado_atrapado(true);
+                                pokebolas.remove(poke_elegida); 
+                            }else{
+                                System.out.println("Pokemon no capturado");
+                                pokebolas.remove(poke_elegida); 
                             }
                             break; 
                         case 2: 
@@ -252,9 +265,6 @@ public class Lab3P2_MiaElvir {
                             break; 
                         
                     }
-                    
-                    
-                    
                     break; 
                 case 6: 
                     break; 
