@@ -4,11 +4,11 @@ package lab3p2_miaelvir;
 
 public class Pokemon {
     
-    String nombre; 
-    int entrada_pokedex;
-    String naturaleza; //Timido, energetico, misterioso
-    boolean estado_atrapado; 
-    Pokebola pokeball; 
+    protected String nombre; 
+    protected int entrada_pokedex;
+    protected String naturaleza; //Timido, energetico, misterioso
+    protected boolean estado_atrapado; 
+    protected Pokebola pokeball; 
 
     public Pokemon(String nombre, int entrada_pokedex, String naturaleza, boolean estado_atrapado, Pokebola pokeball) {
         this.nombre = nombre;

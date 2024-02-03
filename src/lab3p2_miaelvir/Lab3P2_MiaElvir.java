@@ -217,6 +217,44 @@ public class Lab3P2_MiaElvir {
                     System.out.println("Pokemon eliminado!");
                     break; 
                 case 5: 
+                    System.out.println("Simulacion--");
+                    for (int i = 0; i < pokebolas.size(); i++) {
+                        Pokebola poke = pokebolas.get(i); 
+                        System.out.println(i+". "+poke.toString());
+                    }
+                    System.out.println("Ingrese el indice de la Pokebola que desea utilizar: ");
+                    int pokecita = papoy.nextInt(); 
+                    while (pokecita < 0 || pokecita > pokebolas.size()-1){
+                        System.out.println("Indice fuera de rango\nIngreselo de nuevo: ");
+                        pokecita = papoy.nextInt(); 
+                    }
+                    Pokebola poke_elegida = pokebolas.get(pokecita); 
+                    Pokemon pokemon_ele = pokemones.get(elegirPokemon(pokemones)); 
+                    System.out.println("El pokemon "+pokemon_ele.getNombre()+" ha aparecido!\nQue desea hacer?\n1. Utilizar la pokebola para atraparlo"
+                            + "\n2. huir del encuentro");
+                    int hui = papoy.nextInt(); 
+                    while (hui < 1 || hui > 2){
+                        System.out.println("Numero no aceptado vuelva a Ingresarlo: ");
+                        hui = papoy.nextInt(); 
+                    }
+                    switch (hui){
+                        case 1: 
+                            System.out.println("--- usar la pokebola ---");
+                            int rani = ran.nextInt(1, 4); 
+                            if (rani == poke_elegida.getEficiencia_a()){
+                                System.out.println("Se ha capturado al pokemon");
+                                pokemon_ele.setPokeball(poke_elegida);
+                                pokemon_ele.setEstado_atrapado(true);
+                            }
+                            break; 
+                        case 2: 
+                            System.out.println("Huyendo del encuentro");
+                            break; 
+                        
+                    }
+                    
+                    
+                    
                     break; 
                 case 6: 
                     break; 
@@ -278,5 +316,15 @@ public class Lab3P2_MiaElvir {
            }
        }
        return false; // si el numero de eficiencia es 2 tien probabilidad de 2 /3 que pase y si es 1 seria 1/3
+   }
+   
+   public static int elegirPokemon(ArrayList<Pokemon> pokes){
+       int randi = ran.nextInt(0, pokes.size()-1); 
+       Pokemon poke = pokemones.get(randi); 
+       while (poke.isEstado_atrapado() == true){
+            randi = ran.nextInt(0, pokes.size()-1); 
+            poke = pokemones.get(randi); 
+       }
+       return randi;    
    }
 }
