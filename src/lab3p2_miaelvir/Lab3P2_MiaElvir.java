@@ -282,13 +282,17 @@ public class Lab3P2_MiaElvir {
                         case 1:
                             System.out.println("--FireType");
                             ArrayList<Integer> index = imprimirModifire(pokemones); 
+                            if (index.isEmpty() == true){
+                                System.out.println("No existen elementos de este tipo no podemos eliminar");
+                                break; 
+                            }
                             System.out.println("Ingrese el elemento que desea modificar: ");
                             int elemento = papoy.nextInt(); 
                             while (existe(index, elemento) == false){
                                 System.out.println("Numero no coincide\nIngreselo de nuevo: ");
                                 elemento = papoy.nextInt(); 
                             }
-                            System.out.println("Que desea modificar\n1. Nombre\nNumero de Entrada a la pokedex\n3. Potencia de llamas\nElija: ");
+                            System.out.println("Que desea modificar\n1. Nombre\n2. Numero de Entrada a la pokedex\n3. Potencia de llamas\nElija: ");
                             int fire = papoy.nextInt(); 
                             while (fire < 1 || fire > 3){
                                 System.out.println("Ingreselo de nuevo: ");
@@ -297,6 +301,7 @@ public class Lab3P2_MiaElvir {
                             switch (fire){
                                 case 1: 
                                     System.out.println("Ingrese el nombre");
+                                    papoy.nextLine(); 
                                     String nom_fi = papoy.nextLine(); 
                                     pokemones.get(elemento).setNombre(nom_fi);
                                     break; 
@@ -315,22 +320,86 @@ public class Lab3P2_MiaElvir {
                         case 2:
                             System.out.println("--WaterType");
                             index = imprimirModiwater(pokemones); 
+                            if (index.isEmpty() == true){
+                                System.out.println("No existen elementos de este tipo no podemos eliminar");
+                                break; 
+                            }
                             System.out.println("Ingrese el elemento que desea modificar: ");
                             elemento = papoy.nextInt(); 
                             while (existe(index, elemento) == false){
                                 System.out.println("Numero no coincide\nIngreselo de nuevo: ");
                                 elemento = papoy.nextInt(); 
                             }
+                            System.out.println("Que desea modificar\n1. Nombre\n2. Numero de Entrada a la pokedex\n3. vida bajo el agua\nElija: ");
+                            int water = papoy.nextInt(); 
+                            while (water < 1 || water > 3){
+                                System.out.println("Ingreselo de nuevo: ");
+                                water = papoy.nextInt();
+                            }
+                            switch (water){
+                                case 1: 
+                                    System.out.println("Ingrese el nombre");
+                                    papoy.nextLine(); 
+                                    String nom_fi = papoy.nextLine(); 
+                                    pokemones.get(elemento).setNombre(nom_fi);
+                                    break; 
+                                case 2: 
+                                    System.out.println("Ingrese el numero de entrada: ");
+                                    int numi = papoy.nextInt(); 
+                                    pokemones.get(elemento).setEntrada_pokedex(numi);
+                                    break; 
+                                case 3: 
+                                    System.out.println("Puede vivir bajo el agua:  ");
+                                    papoy.nextLine(); 
+                                    String vidaAgua = papoy.nextLine(); 
+                                    boolean vidasi = false; 
+                                    if (vidaAgua.equalsIgnoreCase("si")){
+                                        vidasi = true; 
+                                    }
+                                    WaterType wati = (WaterType)pokemones.get(elemento); 
+                                    wati.setVida_posible(vidasi);
+                                   
+                                    break; }
                             break;
                         case 3:
                             System.out.println("--GrassType");
                             index = imprimirModiGrass(pokemones); 
+                            if (index.isEmpty() == true){
+                                System.out.println("No existen elementos de este tipo no podemos eliminar");
+                                break; 
+                            }
                             System.out.println("Ingrese el elemento que desea modificar: ");
                             elemento = papoy.nextInt(); 
                             while (existe(index, elemento) == false){
                                 System.out.println("Numero no coincide\nIngreselo de nuevo: ");
                                 elemento = papoy.nextInt(); 
                             }
+                             System.out.println("Que desea modificar\n1. Nombre\n2. Numero de Entrada a la pokedex\n3. habitat\nElija: ");
+                            int grass = papoy.nextInt(); 
+                            while (grass < 1 || grass > 3){
+                                System.out.println("Ingreselo de nuevo: ");
+                                grass = papoy.nextInt();
+                            }
+                            switch (grass){
+                                case 1: 
+                                    System.out.println("Ingrese el nombre");
+                                    
+                                    papoy.nextLine(); 
+                                    String nom_fi = papoy.nextLine(); 
+                                    pokemones.get(elemento).setNombre(nom_fi);
+                                    break; 
+                                case 2: 
+                                    System.out.println("Ingrese el numero de entrada: ");
+                                    int numi = papoy.nextInt(); 
+                                    pokemones.get(elemento).setEntrada_pokedex(numi);
+                                    break; 
+                                case 3: 
+                                    System.out.println("Ingrese el habitat: ");
+                                    papoy.nextLine(); 
+                                    String habi = papoy.nextLine();
+                                    GrassType grasi = (GrassType)pokemones.get(elemento); 
+                                    grasi.setHabitat(habi);
+                                    break; }
                             
                             break;
                         
