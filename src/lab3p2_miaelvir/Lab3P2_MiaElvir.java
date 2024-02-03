@@ -268,6 +268,10 @@ public class Lab3P2_MiaElvir {
                     }
                     break; 
                 case 6: 
+                    if (pokemones.isEmpty() == true){
+                        System.out.println("No se puede modificar, no existen elementos en la lista");
+                        break; 
+                    }
                     System.out.println("Modificar--\n1. FireType\n2. WaterType\n3. GrassType\nIngrese el tipo que quiere modificar: ");
                     int modi = papoy.nextInt(); 
                     while (modi < 1 || modi > 3){
@@ -277,13 +281,56 @@ public class Lab3P2_MiaElvir {
                     switch (modi) {
                         case 1:
                             System.out.println("--FireType");
-                            
+                            ArrayList<Integer> index = imprimirModifire(pokemones); 
+                            System.out.println("Ingrese el elemento que desea modificar: ");
+                            int elemento = papoy.nextInt(); 
+                            while (existe(index, elemento) == false){
+                                System.out.println("Numero no coincide\nIngreselo de nuevo: ");
+                                elemento = papoy.nextInt(); 
+                            }
+                            System.out.println("Que desea modificar\n1. Nombre\nNumero de Entrada a la pokedex\n3. Potencia de llamas\nElija: ");
+                            int fire = papoy.nextInt(); 
+                            while (fire < 1 || fire > 3){
+                                System.out.println("Ingreselo de nuevo: ");
+                                fire = papoy.nextInt();
+                            }
+                            switch (fire){
+                                case 1: 
+                                    System.out.println("Ingrese el nombre");
+                                    String nom_fi = papoy.nextLine(); 
+                                    pokemones.get(elemento).setNombre(nom_fi);
+                                    break; 
+                                case 2: 
+                                    System.out.println("Ingrese el numero de entrada: ");
+                                    int numi = papoy.nextInt(); 
+                                    pokemones.get(elemento).setEntrada_pokedex(numi);
+                                    break; 
+                                case 3: 
+                                    System.out.println("Ingrese la potencia de las llamas: ");
+                                    int poten = papoy.nextInt(); 
+                                    FireType u = (FireType)pokemones.get(elemento); 
+                                    u.setPoten_llamas(poten);
+                                    break; }
                             break;
                         case 2:
                             System.out.println("--WaterType");
+                            index = imprimirModiwater(pokemones); 
+                            System.out.println("Ingrese el elemento que desea modificar: ");
+                            elemento = papoy.nextInt(); 
+                            while (existe(index, elemento) == false){
+                                System.out.println("Numero no coincide\nIngreselo de nuevo: ");
+                                elemento = papoy.nextInt(); 
+                            }
                             break;
                         case 3:
                             System.out.println("--GrassType");
+                            index = imprimirModiGrass(pokemones); 
+                            System.out.println("Ingrese el elemento que desea modificar: ");
+                            elemento = papoy.nextInt(); 
+                            while (existe(index, elemento) == false){
+                                System.out.println("Numero no coincide\nIngreselo de nuevo: ");
+                                elemento = papoy.nextInt(); 
+                            }
                             
                             break;
                         
