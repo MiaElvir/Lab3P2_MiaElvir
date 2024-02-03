@@ -245,6 +245,7 @@ public class Lab3P2_MiaElvir {
                         case 1: 
                             System.out.println("--- usar la pokebola ---");
                             int rani = ran.nextInt(1, 4); 
+                            System.out.println(rani);
                             if (rani == poke_elegida.getEficiencia_a()){
                                 System.out.println("Se ha capturado al pokemon");
                                 pokemon_ele.setPokeball(poke_elegida);
@@ -267,6 +268,13 @@ public class Lab3P2_MiaElvir {
                     }
                     break; 
                 case 6: 
+                    System.out.println("Modificar--\n1. FireType\n2. WaterType\n3. GrassType\nIngrese el tipo que quiere modificar: ");
+                    int modi = papoy.nextInt(); 
+                    while (modi < 1 || modi > 3){
+                        System.out.println("Numero fuera de rango\nVuelvalo a Ingresar: ");
+                        modi = papoy.nextInt(); 
+                    }
+                    
                     break; 
                     
             
@@ -336,5 +344,9 @@ public class Lab3P2_MiaElvir {
             poke = pokemones.get(randi); 
        }
        return randi;    
+   }
+   
+   public static void modificar(){
+       
    }
 }
