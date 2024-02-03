@@ -167,6 +167,10 @@ public class Lab3P2_MiaElvir {
                                     indices.add(i); 
                                 }
                             }
+                            if (indices.isEmpty() == true){
+                                System.out.println("No hay elementos de este tipo");
+                                break; 
+                            }
                             System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
                             int elim_fire = papoy.nextInt(); 
                             while (existe(indices, elim_fire) == false){
@@ -186,6 +190,10 @@ public class Lab3P2_MiaElvir {
                                     indices_water.add(i); 
                                 }
                             }
+                            if (indices_water.isEmpty() == true){
+                                System.out.println("No hay elementos de este tipo");
+                                break; 
+                            }
                             System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
                             int elim_water = papoy.nextInt(); 
                             while (existe(indices_water, elim_water) == false){
@@ -204,6 +212,10 @@ public class Lab3P2_MiaElvir {
                                     System.out.println(i+". "+pokeci.toString());
                                     indices_g.add(i); 
                                 }
+                            }
+                            if (indices_g.isEmpty() == true){
+                                System.out.println("No hay elementos de este tipo");
+                                break; 
                             }
                             System.out.println("Ingrese el indice del pokemon que desea eliminar: ");
                             int elim_g = papoy.nextInt(); 
