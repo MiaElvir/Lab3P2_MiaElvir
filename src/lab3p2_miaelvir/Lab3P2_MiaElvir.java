@@ -213,6 +213,7 @@ public class Lab3P2_MiaElvir {
                                     indices_g.add(i); 
                                 }
                             }
+                            
                             if (indices_g.isEmpty() == true){
                                 System.out.println("No hay elementos de este tipo");
                                 break; 
